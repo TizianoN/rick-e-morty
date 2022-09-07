@@ -1,11 +1,13 @@
 <template>
     <div id="app">
         <HeaderComponent :msg="title" />
+        <ListCharactersComponent />
     </div>
 </template>
 
 <script>
 import HeaderComponent from "./components/HeaderComponent.vue";
+import ListCharactersComponent from "./components/ListCharactersComponent.vue";
 
 export default {
     name: "App",
@@ -16,6 +18,7 @@ export default {
     },
     components: {
         HeaderComponent,
+        ListCharactersComponent,
     },
 };
 </script>

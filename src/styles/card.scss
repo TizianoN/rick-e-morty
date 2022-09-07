@@ -1,0 +1,19 @@
+@import './vars.scss';
+
+
+.card {
+	border: none;
+    text-align: center;
+	color: $--main-color;
+	font-family: $--main-font-family;
+	
+	.card-img-top {
+		border-radius: 50%;
+		transition: all ease-in .1s;
+	}
+
+	.card-img-top:hover {
+		transform: scale(1.05);
+		// scale: 1.05;
+	}
+}
