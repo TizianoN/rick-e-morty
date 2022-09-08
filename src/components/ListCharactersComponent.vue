@@ -1,8 +1,14 @@
 <template>
     <div class="container">
+        <div>
+            {{ counter }}
+            <b @click="counter++">
+                +
+            </b>
+        </div>
         <div class="row g-4">
             <div
-                v-for="character of listCharacters"
+                v-for="character of filteredCharacters"
                 :key="character.id"
                 class="col-3"
             >
@@ -18,10 +24,50 @@ import CharacterComponent from "./CharacterComponent.vue";
 
 export default {
     name: "ListCharactersComponent",
+    props: {
+        search: {
+            type: String,
+            default: '',
+        }
+    },
     data() {
         return {
             listCharacters: [],
+            counter: 0
+            // search: 'alex'
         };
+    },
+    computed: {
+        filteredCharacters() {
+           console.log('filtra')
+            return this.listCharacters.filter((el) => {
+                const name = el.name.toLowerCase()
+                const find = this.search.toLowerCase()
+
+                if(name.includes(find)) {
+                    return true
+                }
+
+                return false
+
+            })
+        }
+    },
+    methods: {
+        // filteredCharacters() {
+        //     console.log('filtra')
+        //     return this.listCharacters.filter((el) => {
+        //         const name = el.name.toLowerCase()
+        //         const find = this.search.toLowerCase()
+
+        //         if(name.includes(find)) {
+        //             return true
+        //         }
+
+        //         return false
+
+        //     })
+        // }
     },
     created() {
         axios

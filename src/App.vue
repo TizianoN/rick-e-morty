@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <HeaderComponent :msg="title" />
-        <ListCharactersComponent />
+        <HeaderComponent :msg="title" @search="onSearch" />
+        <ListCharactersComponent :search="searchProp" />
     </div>
 </template>
 
@@ -14,12 +14,19 @@ export default {
     data() {
         return {
             title: "Rick & Morty",
+            searchProp: '',
         };
     },
     components: {
         HeaderComponent,
         ListCharactersComponent,
     },
+    methods: {
+        onSearch(data) {
+            this.searchProp = data
+            // console.log('ascolto l\'evento search',data )
+        }
+    }
 };
 </script>
 
