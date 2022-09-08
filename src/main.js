@@ -14,15 +14,25 @@ Vue.use(IconsPlugin)
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+	render: (h) => h(App),
 }).$mount('#app')
 
+// const mioEvento = new CustomEvent('search', {
+// 	detail: {
+// 		input: 'Gianni',
+// 		age: 32,
+// 		gender: 'fluid',
+// 	},
+// })
 
+// document.body.addEventListener('search', (e) => {
+// 	// console.log(e)
+// 	const datail = e.detail
+// 	const { age, gender, input } = datail
 
+// 	console.log(age, gender, input)
+// })
 
-
-
-
-
-
-
+// document.body.addEventListener('click', () => {
+// 	document.body.dispatchEvent(mioEvento)
+// })
